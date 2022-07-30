@@ -16,7 +16,7 @@ namespace Section3HashTable
         }
         public void Add(K key, V value)
         {
-            int position = GetArrayPosition(key);  
+            int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             KeyValue<K, V> item = new KeyValue<K, V>() { Key = key, Value = value };
             linkedList.AddLast(item);
@@ -51,6 +51,22 @@ namespace Section3HashTable
                         Console.WriteLine(entry.Key + " - " +
                                           entry.Value);
                     }
+                }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <param name="word"></param>
+        public void Remove(MyMapNode<int, string> hash, string word)
+        {
+            for (int key = 0; key < hash.size; key++)
+            {
+                if (hash.Get(key).Equals(word))
+                {
+                    hash.Remove(key);
+                    Console.WriteLine("Removed " + word + " from paragraph");
                 }
             }
         }
